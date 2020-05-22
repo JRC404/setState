@@ -7,6 +7,19 @@ class App extends Component {
   state = {
     digits: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     currentNumber: "",
+    incrementedNumber: 0
+  }
+
+  incrementFunction = () => {
+    this.setState({
+      incrementedNumber: this.state.incrementedNumber + 1
+    })
+  }
+
+  decrementFunction = () => {
+    this.setState({
+      incrementedNumber: this.state.incrementedNumber - 1
+    })
   }
 
   addUserInput = (event) => {
@@ -36,7 +49,9 @@ class App extends Component {
         {/* 1 - 6 */}
         <input type="number" onChange={this.addUserInput} value={this.state.currentNumber} />
         <button onClick={this.addNumber}>Add the user's number</button>
-
+        <p>{this.state.incrementedNumber}</p>
+        <button onClick={this.incrementFunction}>Increase me</button>
+        <button onClick={this.decrementFunction}>Lower me</button>
         {/* 
           add a userInput value - text or otherwise to a state that doesn't just hold numbers...
           household members... you can add the household member via the input box...
